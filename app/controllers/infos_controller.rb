@@ -1,4 +1,7 @@
 class InfosController < ApplicationController
+  before_action :set_info, only: [:edit, :show] # editとshowアクションにおいて、@info = Info.find(params[:id])部分が重複してた為
+
+
   def index
     # infosテーブルすべてのレコードをインスタンス変数に代入、ビューに受け渡す。
     @infos = Info.all
@@ -10,6 +13,7 @@ class InfosController < ApplicationController
   end
 
   def create
+    # info_paramsストロングパラメーターを定義、createメソッドの引数にして、infosテーブルへ保存できるようにする。
     Info.create(info_params)
   end
 
@@ -20,6 +24,8 @@ class InfosController < ApplicationController
   end
 
   def edit
+    # 編集したいレコードを@infoに代入し、ビューに受け渡すことで編集画面で利用できるようにする。
+    # form_withで使用する@infoの中身が入った状態にしておく。
     @info = Info.find(params[:id])
   end
 
@@ -29,8 +35,17 @@ class InfosController < ApplicationController
     info.update(info_params)
   end
 
+  def show
+    # 詳細を表示したいinfo情報をビューに受け渡すだけ
+    @info = Info.find(params[:id])
+  end
+
   private
   def info_params
     params.require(:info).permit(:name, :image, :text)
+  end
+
+  def set_info
+    @info = Info.find(params[:id])
   end
 end
