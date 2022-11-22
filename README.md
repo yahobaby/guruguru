@@ -1,24 +1,49 @@
-# README
+## ①usersテーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column                | Type        | Options                        |
+| --------------------- | ----------- | ------------------------------ |
+| nickname              | string      | null: false                    |
+| email                 | string      | null: false, unique: true      |
+| encrypted_password    | string      | null: false                    |
+| lastname_kana         | string      | null: false                    |
+| firstname_kana        | string      | null: false                    |
+| lastname_kanji        | string      | null: false                    |
+| firstname_kanji       | string      | null: false                    |
+| birthday              | date        | null: false                    |
 
-Things you may want to cover:
+### users Association
+- has_many : infos
 
-* Ruby version
+## ②infoテーブル
 
-* System dependencies
+| Column                | Type        | Options                        |
+| --------------------- | ----------- | ------------------------------ |
+| user                  | references  | null: false, foreign_key: true |
+| title                 | string      | null: false                    |
+| text                  | text        | null: false                    |
 
-* Configuration
+### info Association
+- belongs_to : user
 
-* Database creation
+<!-- ## ③credit_payテーブル
+| Column                | Type        | Options                        |
+| --------------------- | ----------- | ------------------------------ |
+| user                  | references  | null: false, foreign_key: true |
 
-* Database initialization
+### credit_pay Association
+- belongs_to : user
+- has_one : credit_info
 
-* How to run the test suite
+## ④credit_infoテーブル
+| Column                | Type        | Options                        |
+| --------------------- | ----------- | ------------------------------ |
+| credit                | references  | null: false, foreign_key: true |
+| post_code             | string      | null: false                    |
+| prefecture_id         | integer     | null: false                    |
+| city                  | string      | null: false                    |
+| address               | string      | null: false                    |
+| building_name         | string      |                                |
+| phone_number          | string      | null: false                    |
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### credit_info Association
+- belongs_to : credit_pay -->
