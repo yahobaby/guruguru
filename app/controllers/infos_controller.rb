@@ -19,6 +19,16 @@ class InfosController < ApplicationController
     info.destroy
   end
 
+  def edit
+    @info = Info.find(params[:id])
+  end
+
+  def update
+    # updateアクションも、destroyアクションと同様、ビューファイルへ情報を受け渡す必要がなく、インスタンス変数ではなくただの変数として定義
+    info = Info.find(params[:id])
+    info.update(info_params)
+  end
+
   private
   def info_params
     params.require(:info).permit(:name, :image, :text)
