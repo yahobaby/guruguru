@@ -7,8 +7,10 @@ class InfosController < ApplicationController
   def index
     # infosテーブルすべてのレコードをインスタンス変数に代入、ビューに受け渡す。
     # @infos = Info.all
-    @infos = Info.includes(:user) #includesメソッドを使用してN+1問題を解消
+    @infos = Info.includes(:user).order("created_at DESC") #includesメソッドを使用してN+1問題を解消
     # includesメソッドで、引数に指定された関連モデルを1度アクセスでまとめて取得
+    # ("created_at DESC")で、レコード降順に並び替える。
+
   end
 
   def new
