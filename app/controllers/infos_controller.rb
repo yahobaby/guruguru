@@ -1,5 +1,7 @@
 class InfosController < ApplicationController
   before_action :set_info, only: [:edit, :show] # editとshowアクションにおいて、@info = Info.find(params[:id])部分が重複してた為
+  before_action :move_to_index, except: [:index, :show] #ログインしていなくても、一覧ページ、詳細ページに遷移できる仕様にするためにexcept: [:index, :show]
+
 
 
   def index
@@ -48,4 +50,13 @@ class InfosController < ApplicationController
   def set_info
     @info = Info.find(params[:id])
   end
+
+  def move_to_index
+    # user_signed_in?を判定して、その返り値がfalseだった場合にredirect_toが実行
+    unless user_signed_in?
+      # →ユーザーがログインしていない場合にはindexアクションが実行
+      redirect_to action: :index
+    end
+  end
+
 end
