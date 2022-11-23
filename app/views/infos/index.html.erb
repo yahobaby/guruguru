@@ -19,7 +19,11 @@
       <%#// 詳細、編集、削除ボタンを追加 %>
       <p><%= info.text %></p>
       <span class="name">
-        <%= info.name %>
+    <%# 投稿一覧画面にnicknameが表示 %>
+        <a href="/users/<%= info.user.id %>">
+          <span>投稿者</span><%= info.user.nickname %>
+        </a>
+    <%#// 投稿一覧画面にnicknameが表示 %>
       </span>
     </div>
   <% end %>

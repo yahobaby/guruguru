@@ -12,7 +12,10 @@
       </ul>
     </div>
     <p><%= @info.text %></p>
-    <span class="name"><%= @info.name %>
+    <span class="name">
+      <a href="/users/<%= @info.user.id %>">
+        <span>投稿者</span><%= @info.user.nickname %>
+      </a>
     </span>
   </div>
 </div>

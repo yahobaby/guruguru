@@ -6,7 +6,9 @@ class InfosController < ApplicationController
 
   def index
     # infosテーブルすべてのレコードをインスタンス変数に代入、ビューに受け渡す。
-    @infos = Info.all
+    # @infos = Info.all
+    @infos = Info.includes(:user) #includesメソッドを使用してN+1問題を解消
+    # includesメソッドで、引数に指定された関連モデルを1度アクセスでまとめて取得
   end
 
   def new
@@ -44,7 +46,7 @@ class InfosController < ApplicationController
 
   private
   def info_params
-    params.require(:info).permit(:name, :image, :text).merge(user_id: current_user.id) # current_userで現在ログインしているユーザーの情報を取得
+    params.require(:info).permit(:image, :text).merge(user_id: current_user.id) # current_userで現在ログインしているユーザーの情報を取得
     # info情報を持つハッシュと、user_idを持つハッシュを結合
   end
 
