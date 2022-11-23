@@ -1,0 +1,10 @@
+<%# usersコントローラーshowアクションに対応するビューファイル %>
+<div class="contents row">
+  <p><%= @nickname %>さんの投稿一覧</p>
+  <% @infos.each do |info| %>
+    <div class="content_post" style="background-image: url(<%= info.image %>);">
+      <p><%= info.text %></p>
+      <span class="name"><%= info.name %></span>
+    </div>
+  <% end %>
+</div>
