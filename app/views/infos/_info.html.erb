@@ -1,0 +1,32 @@
+<div class="content_post" style="background-image: url(<%= info.image %>);">
+    <%# 詳細、編集、削除ボタンを追加 %>
+        <div class="more">
+            <span><%= image_tag 'arrow_top.png' %></span>
+            <ul class="more_list">
+                <li>
+                    <%= link_to '詳細', info_path(info.id), method: :get %>
+                </li>
+
+                <%# 「ユーザーがログインしている」かつ「投稿したユーザーである投稿だけに許可」 %>
+                    <% if user_signed_in? && current_user.id == info.user_id %>
+                        <li>
+                            <%= link_to '編集', edit_info_path(info.id), method: :get %>
+                        </li>
+                        <li>
+                            <%= link_to '削除', info_path(info.id), method: :delete %>
+                        </li>
+                    <% end %>
+                    <%#// 「ユーザーがログインしている」かつ「投稿したユーザーである投稿だけに許可」 %>
+
+                    </ul>
+                </div>
+                <%#// 詳細、編集、削除ボタンを追加 %>
+                    <p><%= info.text %></p>
+                    <span class="name">
+                        <%# 投稿一覧画面にnicknameが表示 %>
+                            <a href="/users/<%= info.user.id %>">
+                                <span>投稿者</span><%= info.user.nickname %>
+                            </a>
+                            <%#// 投稿一覧画面にnicknameが表示 %>
+                            </span>
+                        </div>
