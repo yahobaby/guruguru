@@ -1,6 +1,6 @@
 class InfosController < ApplicationController
   before_action :set_info, only: [:edit, :show] # editとshowアクションにおいて、@info = Info.find(params[:id])部分が重複してた為
-  before_action :move_to_index, except: [:index, :show] #ログインしていなくても、一覧ページ、詳細ページに遷移できる仕様にするためにexcept: [:index, :show]
+  before_action :move_to_index, except: [:index, :show, :search] #ログインしていなくても、一覧ページ、詳細ページに遷移でき、検索機能が使える仕様にするためにexcept: [:index, :show, :search]
 
 
 
@@ -47,6 +47,10 @@ class InfosController < ApplicationController
     @comments = @info.comments.includes(:user)
     # infosテーブルとcommentsテーブルはアソシエーションが組まれているので、@info.commentsとすることで、@infoへ投稿されたすべてのコメントを取得
     # ビューでは誰のコメントか明らかにするため、アソシエーションを使ってユーザーのレコードを取得する処理を繰り返し,「N+1問題」が発生してしまうので、includesメソッドを使って、N+1問題を解決
+  end
+
+  def search #検索機能
+    @infos = Info.search(params[:keyword]) #params[:keyword]と記述して、検索結果を渡す
   end
 
   private
