@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   #  アソシエーション
   has_many :infos
+  has_many :comments
   # //アソシエーション
 end

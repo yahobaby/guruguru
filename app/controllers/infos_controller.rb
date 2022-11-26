@@ -32,7 +32,6 @@ class InfosController < ApplicationController
   def edit
     # 編集したいレコードを@infoに代入し、ビューに受け渡すことで編集画面で利用できるようにする。
     # form_withで使用する@infoの中身が入った状態にしておく。
-    @info = Info.find(params[:id])
   end
 
   def update
@@ -43,7 +42,11 @@ class InfosController < ApplicationController
 
   def show
     # 詳細を表示したいinfo情報をビューに受け渡すだけ
-    @info = Info.find(params[:id])
+    @comment = Comment.new
+    # infos/show.html.erbでform_withを使用して、comments#createを実行するリクエストを飛ばしたく、@comment = Comment.newというインスタンス変数を生成
+    @comments = @info.comments.includes(:user)
+    # infosテーブルとcommentsテーブルはアソシエーションが組まれているので、@info.commentsとすることで、@infoへ投稿されたすべてのコメントを取得
+    # ビューでは誰のコメントか明らかにするため、アソシエーションを使ってユーザーのレコードを取得する処理を繰り返し,「N+1問題」が発生してしまうので、includesメソッドを使って、N+1問題を解決
   end
 
   private

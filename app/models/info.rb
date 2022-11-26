@@ -3,5 +3,6 @@ class Info < ApplicationRecord
   
   #  アソシエーション
   belongs_to :user
+  has_many :comments  
   # //アソシエーション  
 end
