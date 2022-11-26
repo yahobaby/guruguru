@@ -5,14 +5,10 @@
 | nickname              | string      | null: false                    |
 | email                 | string      | null: false, unique: true      |
 | encrypted_password    | string      | null: false                    |
-| lastname_kana         | string      | null: false                    |
-| firstname_kana        | string      | null: false                    |
-| lastname_kanji        | string      | null: false                    |
-| firstname_kanji       | string      | null: false                    |
-| birthday              | date        | null: false                    |
 
 ### users Association
 - has_many : infos
+- has_many : comments
 
 ## ②infoテーブル
 
@@ -24,8 +20,21 @@
 
 ### info Association
 - belongs_to : user
+- has_many : comments 
 
-<!-- ## ③credit_payテーブル
+## ③commentテーブル
+
+| Column                | Type        | Options                        |
+| --------------------- | ----------- | ------------------------------ |
+| user                  | references  | null: false, foreign_key: true |
+| info                  | references  | null: false, foreign_key: true |
+| text                  | text        | null: false                    |
+
+### info Association
+- belongs_to : user
+- belongs_to : info
+
+<!-- ## ④credit_payテーブル
 | Column                | Type        | Options                        |
 | --------------------- | ----------- | ------------------------------ |
 | user                  | references  | null: false, foreign_key: true |
@@ -34,7 +43,7 @@
 - belongs_to : user
 - has_one : credit_info
 
-## ④credit_infoテーブル
+## ⑤credit_infoテーブル
 | Column                | Type        | Options                        |
 | --------------------- | ----------- | ------------------------------ |
 | credit                | references  | null: false, foreign_key: true |
