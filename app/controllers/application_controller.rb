@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   private
   def configure_permitted_parameters
-    #sign_up（新規登録の処理）に対して、nicknameというキーのパラメーターを許可
+    #sign_up（新規登録の処理）に対して、nicknameというキーのパラメーターをw許可
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
   end
 

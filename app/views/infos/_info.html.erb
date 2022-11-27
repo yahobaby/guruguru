@@ -21,7 +21,8 @@
                     </ul>
                 </div>
                 <%#// 詳細、編集、削除ボタンを追加 %>
-                    <p><%= info.text %></p>
+                    <p><%= info.title %></p>
+                    <%# <p><%= info.text</p> 本文内容は非表示に%>
                     <span class="name">
                         <%# 投稿一覧画面にnicknameが表示 %>
                             <a href="/users/<%= info.user.id %>">
