@@ -12,39 +12,29 @@
 
     <body>
         <header class="header">
-            <div class="header__bar row">
-                <h1 class="grid-6">
+            <div class="header_logo">
                     <a href="/">回覧板</a>
-                </h1>
+            </div>
                 <%# ログイン状態かどうかで表示を切り替る %>
                     <% if user_signed_in? %>
-                        <div class="user_nav grid-6">
                             <%# 現在ログインしているニックネームを表示 %>
-                                <span><%= current_user.nickname %>
-                                    <%# //現在ログインしているニックネームを表示 %>
-                                        <ul class="user__info">
-                                            <li>
-                                                <%= link_to "マイページ", "/users/#{current_user.id}" %>
-                                                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-                                            </li>
-                                        </ul>
-                                    </span>
+                                   <%# //現在ログインしているニックネームを表示 %>
+                                    <span><%= current_user.nickname %>様こんにちは！</span>
+                                    <%= link_to "マイページ", "/users/#{current_user.id}" %>
+                                     <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
                                     <%= link_to "投稿する", new_info_path, class: "post" %>
+                                    <%= link_to "町内会費支払い", new_info_path, class: "post" %>
                                 </div>
                             <% else %>
-                                <div class="grid-6">
                                     <%= link_to "住民の方はこちら", new_user_session_path, class: "post" %>
                                     <%= link_to "新規登録", new_user_registration_path, class: "post" %>
-                                </div>
                             <% end %>
                             <%#// ログイン状態かどうかで表示を切り替る %>
                             </div>
                         </header>
                         <%= yield %>
                         <footer>
-                            <p>
-                                GURUGURU Ver1.0.0
-                            </p>
+            <%= render partial: "infos/footer" %>
                         </footer>
                     </body>
                 </html>

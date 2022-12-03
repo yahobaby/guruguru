@@ -1,57 +1,52 @@
-<div class="contents row">
-    <div class="content_post" style="background-image: url(<%= @info.image %>);">
+<div class="text_box">
+    <div class="text_box_image">
+        <%= image_tag @info.image, size: '500x500' %>
+    </div>
+    <div class="text_box_text">
+        <p><%= @info.text %></p>
+    </div>
+    <span class="name">
+        <a href="/users/<%= @info.user.id %>">
+            <span>投稿者</span><%= @info.user.nickname %>
+        </a>
+    </span>
+</div>
 
-        <%# ログイン中ユーザーが投稿したツイートには、詳細ボタンに加えて「編集・削除ボタン」が表示 %>
-            <% if user_signed_in? && current_user.id == @info.user_id %>
-                <div class="more">
-                    <span><%= image_tag 'arrow_top.png' %></span>
-                    <ul class="more_list">
-                        <li>
-                            <%= link_to '編集', edit_info_path(@info.id), method: :get %>
-                        </li>
-                        <li>
-                            <%= link_to '削除', info_path(@info.id), method: :delete %>
-                        </li>
-                    </ul>
-                </div>
+<%# ログイン中ユーザーが投稿したツイートには、詳細ボタンに加えて「編集・削除ボタン」が表示 %>
+<% if user_signed_in? && current_user.id == @info.user_id %>
+    <%= link_to '編集', edit_info_path(@info.id) %>
+    <%= link_to '削除', info_path(@info.id), method: :delete %>
+<% end %>
+
+<%#// ログイン中ユーザーが投稿したツイートには、詳細ボタンに加えて「編集・削除ボタン」が表示 %>
+
+    <%# コメント投稿用のフォーム %>
+        <div class="container">
+            <% if user_signed_in? %>
+                <%= form_with(model: [@info, @comment], local: true) do |form| %>
+                <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+                <%= form.submit "SEND" %>
             <% end %>
-            <%#// ログイン中ユーザーが投稿したツイートには、詳細ボタンに加えて「編集・削除ボタン」が表示 %>
-
-                <p><%= @info.text %></p>
-                <span class="name">
-                    <a href="/users/<%= @info.user.id %>">
-                        <span>投稿者</span><%= @info.user.nickname %>
-                    </a>
-                </span>
-            </div>
-
-            <%# コメント投稿用のフォーム %>
-                <div class="container">
-                    <% if user_signed_in? %>
-                        <%= form_with(model: [@info, @comment], local: true) do |form| %>
-                        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-                        <%= form.submit "SEND" %>
-                    <% end %>
-                <% else %>
-                    <strong>
-                        <p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
-                    </strong>
-                <% end %>
-                <%#// コメント投稿用のフォーム %>
-                <%# モデルを利用してコメントの情報を取得 %>
-                                    <div class="comments">
-                        <h4>＜コメント一覧＞</h4>
-                        <% @comments.each do |comment| %>
+        <% else %>
+            <strong>
+                <p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
+            </strong>
+        <% end %>
+        <%#// コメント投稿用のフォーム %>
+            <%# モデルを利用してコメントの情報を取得 %>
+                <div class="comments">
+                    <h4>＜コメント一覧＞</h4>
+                    <% @comments.each do |comment| %>
                         <%# @commentsには複数のコメントのレコードが入っているので、配列の形 %>
-                        <%# ビューに表示させるためにはeachメソッドを使って、ひとつひとつのレコードに分解してから表示 %>
-                            <p>
-                                <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
-                                <%# コメントしたユーザーの名前をクリックしたら、そのユーザーのマイページへ遷移 %>
-                                <%= comment.text %>
-                            </p>
-                        <% end %>
-                    </div>
+                            <%# ビューに表示させるためにはeachメソッドを使って、ひとつひとつのレコードに分解してから表示 %>
+                                <p>
+                                    <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+                                    <%# コメントしたユーザーの名前をクリックしたら、そのユーザーのマイページへ遷移 %>
+                                        <%= comment.text %>
+                                    </p>
+                                <% end %>
+                            </div>
 
-                <%#// モデルを利用してコメントの情報を取得 %>
-                </div>
-            </div>
+                            <%#// モデルを利用してコメントの情報を取得 %>
+                            </div>
+                        </div>
