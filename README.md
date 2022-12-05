@@ -9,6 +9,8 @@
 ### users Association
 - has_many : infos
 - has_many : comments
+- has_many : CreditCardPayments
+
 
 ## ②infoテーブル
 
@@ -34,19 +36,20 @@
 - belongs_to : user
 - belongs_to : info
 
-<!-- ## ④credit_payテーブル
+## ④CreditCardPaymentテーブル
 | Column                | Type        | Options                        |
 | --------------------- | ----------- | ------------------------------ |
 | user                  | references  | null: false, foreign_key: true |
+| price                 | integer     | null: false                    |
 
-### credit_pay Association
+### CreditCardPayment Association
 - belongs_to : user
-- has_one : credit_info
+- has_one : CreditCardInfo
 
-## ⑤credit_infoテーブル
+## ⑤CreditCardInfoテーブル
 | Column                | Type        | Options                        |
 | --------------------- | ----------- | ------------------------------ |
-| credit                | references  | null: false, foreign_key: true |
+| CreditCardPayment     | references  | null: false, foreign_key: true |
 | post_code             | string      | null: false                    |
 | prefecture_id         | integer     | null: false                    |
 | city                  | string      | null: false                    |
@@ -54,5 +57,5 @@
 | building_name         | string      |                                |
 | phone_number          | string      | null: false                    |
 
-### credit_info Association
-- belongs_to : credit_pay -->
+### CreditCardInfo Association
+- belongs_to : CreditCardPayment
