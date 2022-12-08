@@ -1,0 +1,13 @@
+<%= form_with  model: @credit_card_payment, id: 'charge-form', class: 'card-form',local: true do |f| %>
+  <div class='form-wrap'>
+    <%= f.label :price, "支払い" %>
+    <%= f.text_field :price, class:"price", placeholder:"例)3000" %>
+    <%= f.label :name, "世帯主名" %>
+    <%= f.text_field :name, class:"price", placeholder:"例)田中様" %>
+    <%= f.label :period, "期間" %>
+    <%= f.text_field :period, class:"price", placeholder:"例)2023" %>
+    <%= f.label :note, "備考欄" %>
+    <%= f.text_field :note, class:"price", placeholder:"例)領収書お願いします。等" %>
+  </div>
+  <%= f.submit "支払い", class:"button", id: "button" %>
+<% end %>

@@ -125,3 +125,38 @@ form input[type="submit"] {
 
 }
 /* index.htmlのinfo表示*/
+
+/* credit_card_payments/index.htmlの表示*/
+.card-form{
+  width: 500px;
+  padding: 5.5em 0;/*上下の余白*/
+  margin: 0 auto;
+}
+
+.form-wrap{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.exp_month{
+  resize:none;
+}
+
+.exp_year{
+  resize:none;
+}
+
+.input-expiration-date-wrap{
+  display: flex;
+}
+
+
+.button{
+  margin-top: 30px;
+  height: 30px;
+  width: 100px;
+}
+/* credit_card_payments/index.htmlの表示*/
+
+

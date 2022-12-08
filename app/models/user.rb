@@ -7,7 +7,7 @@ class User < ApplicationRecord
   #  アソシエーション
   has_many :infos
   has_many :comments
+  has_many :credit_card_payments
   # //アソシエーション
-
   
 end
