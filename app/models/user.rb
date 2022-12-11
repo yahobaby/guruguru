@@ -9,7 +9,6 @@ class User < ApplicationRecord
   has_many :comments
   has_many :credit_card_payments
   # //アソシエーション
-  
-  validates :nickname, presence: true
 
+  validates :nickname, presence: true
 end

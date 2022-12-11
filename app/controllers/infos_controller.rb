@@ -1,16 +1,13 @@
 class InfosController < ApplicationController
-  before_action :set_info, only: [:edit, :show] # editとshowアクションにおいて、@info = Info.find(params[:id])部分が重複してた為
-  before_action :move_to_index, except: [:index, :show, :search] #ログインしていなくても、一覧ページ、詳細ページに遷移でき、検索機能が使える仕様にするためにexcept: [:index, :show, :search]
-
-
+  before_action :set_info, only: %i[edit show] # editとshowアクションにおいて、@info = Info.find(params[:id])部分が重複してた為
+  before_action :move_to_index, except: %i[index show search] # ログインしていなくても、一覧ページ、詳細ページに遷移でき、検索機能が使える仕様にするためにexcept: [:index, :show, :search]
 
   def index
     # infosテーブルすべてのレコードをインスタンス変数に代入、ビューに受け渡す。
     # @infos = Info.all
-    @infos = Info.includes(:user).order("created_at DESC") #includesメソッドを使用してN+1問題を解消
+    @infos = Info.includes(:user).order('created_at DESC') # includesメソッドを使用してN+1問題を解消
     # includesメソッドで、引数に指定された関連モデルを1度アクセスでまとめて取得
     # ("created_at DESC")で、レコード降順に並び替える。
-
   end
 
   def new
@@ -49,11 +46,12 @@ class InfosController < ApplicationController
     # ビューでは誰のコメントか明らかにするため、アソシエーションを使ってユーザーのレコードを取得する処理を繰り返し,「N+1問題」が発生してしまうので、includesメソッドを使って、N+1問題を解決
   end
 
-  def search #検索機能
-    @infos = Info.search(params[:keyword]) #params[:keyword]と記述して、検索結果を渡す
+  def search # 検索機能
+    @infos = Info.search(params[:keyword]) # params[:keyword]と記述して、検索結果を渡す
   end
 
   private
+
   def info_params
     params.require(:info).permit(:text, :title, :local_image).merge(user_id: current_user.id) # current_userで現在ログインしているユーザーの情報を取得
     # info情報を持つハッシュと、user_idを持つハッシュを結合
@@ -70,5 +68,4 @@ class InfosController < ApplicationController
       redirect_to action: :index
     end
   end
-
 end

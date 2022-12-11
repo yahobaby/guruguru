@@ -1,14 +1,13 @@
-# % bundle exec rspec spec/models/user_spec.rb 
+# % bundle exec rspec spec/models/user_spec.rb
 
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-
   before do
     @user = FactoryBot.build(:user)
   end
 
-  describe 'ユーザー新規登録' do 
+  describe 'ユーザー新規登録' do
     context '新規登録ができるとき' do
       it '全て正しく入力されると、登録できる' do
         expect(@user).to be_valid
@@ -29,7 +28,7 @@ RSpec.describe User, type: :model do
       end
 
       it 'メールアドレスが一意性でないと登録できない' do
-        @user.save 
+        @user.save
         another_user = FactoryBot.build(:user)
         another_user.email = @user.email
         another_user.valid?
