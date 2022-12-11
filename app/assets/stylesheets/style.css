@@ -6,7 +6,7 @@ body {
   padding-top: 60px;
   line-height: 1.57;
   letter-spacing: 0.15em;
-  font-size: 20px; 
+  /* font-size: 20px;  */
   color: #666;
   font-family: 'Unica One', "Avenir", "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
   margin: 0;
@@ -82,12 +82,13 @@ form input[type="submit"] {
 
 .container{
   text-align: center;
+  
 }
 
 
 /* show.htmlのtextとimage表示*/
 .text_box {
-  /* justify-content: center; */
+  
 }
 
 .text_box_text{
@@ -107,6 +108,14 @@ form input[type="submit"] {
   padding: 0;
   text-align:center;
 }
+
+.text_box_name {
+  margin: 0; 
+  padding: 0;
+  text-align:center;
+}
+
+
 
 .text_box_image {
   text-align:center;
@@ -159,4 +168,34 @@ form input[type="submit"] {
 }
 /* credit_card_payments/index.htmlの表示*/
 
+/* jQueryにて大きさ調整*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+button {
+  font-size: 15px;
+  padding: 3px 5px;
+}
+
+/*// jQueryにて大きさ調整*/

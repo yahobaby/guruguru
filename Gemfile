@@ -68,4 +68,3 @@ gem 'payjp'
 # 画像加工のツール
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
-

@@ -5,7 +5,7 @@
     <div class="text_box_text">
         <p><%= @info.text %></p>
     </div>
-    <div class="name">
+    <div class="text_box_name">
         <a href="/users/<%= @info.user.id %>">
             <span>投稿者</span><%= @info.user.nickname %>
         </a>
@@ -24,13 +24,13 @@
             <% if user_signed_in? %>
                 <%= form_with(model: [@info, @comment], local: true) do |form| %>
                 <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-                <%= form.submit "SEND" %>
+                <p><%= form.submit "コメントする" %></p>
             <% end %>
         <% else %>
             <strong>
-                <p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
+                <p>※ コメントの投稿にはログインが必要です ※</p>
             </strong>
-        <% end %>
+        <% end %>        
         <%#// コメント投稿用のフォーム %>
             <%# モデルを利用してコメントの情報を取得 %>
                 <div class="comments">

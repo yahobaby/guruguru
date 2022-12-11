@@ -8,7 +8,12 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require("../card") //payjpクレジットカード機能読みこみ
+require('jquery') //jQueryを呼び出せる
+require("../size")
 
+//= require jquery
+//= require jquery_ujs
+//= require_tree .
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

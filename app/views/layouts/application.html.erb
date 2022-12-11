@@ -21,8 +21,10 @@
                     <%# ログイン状態かどうかで表示を切り替る %>
                         <% if user_signed_in? %>
                             <span><%= current_user.nickname %>様こんにちは！</span>
-                            <%= link_to "文字大", root_path %>
-                            <%= link_to "文字小", root_path %>
+
+
+
+
                         </div>
                         <%# 現在ログインしているニックネームを表示 %>
                             <%# //現在ログインしているニックネームを表示 %>
@@ -34,8 +36,6 @@
                         <% else %>
                             <%= link_to "住民の方はこちら", new_user_session_path, class: "post" %>
                             <%= link_to "新規登録", new_user_registration_path, class: "post" %>
-                            <%= link_to "文字大", root_path %>
-                            <%= link_to "文字小", root_path %>
                         <% end %>
                         <%#// ログイン状態かどうかで表示を切り替る %>
                         </div>
