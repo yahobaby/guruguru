@@ -1,201 +1,201 @@
 @charset "UTF-8";
 
 body {
-  background-color: white;
-
-  padding-top: 60px;
-  line-height: 1.57;
-  letter-spacing: 0.15em;
-  /* font-size: 20px;  */
-  color: #666;
-  font-family: 'Unica One', "Avenir", "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
-  margin: 0;
+    background-color: white;
+    font-size: 1.6rem;
+    padding-top: 60px;
+    line-height: 1.57;
+    letter-spacing: 0.15em;
+    color: #666;
+    font-family: 'Unica One', "Avenir", "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
+    margin: 0;
 }
 
 a {
-  text-decoration: none; /*回覧板*/
-  font-weight: bold;
-  color: black;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
 }
-
 
 header.header {
-  padding: 5px;
-  border-bottom: 1px solid #D8D8D8;
-  background-color: rgb(255, 255, 255); /*header 背景色*/
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 5;
-  height: 62px;
+    padding: 5px;
+    border-bottom: 1px solid #D8D8D8;
+    background-color: rgb(255, 255, 255);
+    /*header 背景色*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    height: 62px;
 }
 
-form input{
-  width: 300px;  
+form input {
+    width: 300px;
 }
 
 form textarea {
-  width: 80%;
-  margin: 5px 0 15px;
-  padding: 10px;
-  border: 1px solid #D8D8D8;
-  border-radius: 5px;
-  font-family: "游ゴシック", "YuGothic";
+    width: 80%;
+    margin: 5px 0 15px;
+    padding: 10px;
+    border: 1px solid #D8D8D8;
+    border-radius: 5px;
+    font-family: "游ゴシック", "YuGothic";
 }
 
 form input[type="submit"] {
-  background-color: #364e96; /*検索ボタン*/
-  border-radius: 20px;
-  font-weight: bold;
-  color:#ffffff;
-  border: 20;
-  font-size: 18px;
+    background-color: #364e96;
+    /*検索ボタン*/
+    border-radius: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    border: 20;
+    font-size: 18px;
 }
 
 .search-form {
-  text-align: center;
-  padding-top: 32px;
+    text-align: center;
+    padding-top: 32px;
 }
 
 .search-form .search-input {
-  margin: 30px;
-  width: 50%;
-  height: 50px;
-  margin-right: 10px;
+    margin: 30px;
+    width: 50%;
+    height: 50px;
+    margin-right: 10px;
 }
 
 .search-form .search-btn {
-  width: 10%;
+    width: 10%;
 }
 
 .footer_logo {
-  margin: 30px auto;
-  padding: 10px;
-  color: #D8D8D8;
-  text-align: center;
+    margin: 30px auto;
+    padding: 10px;
+    color: #D8D8D8;
+    text-align: center;
 }
 
-.contents{
-  text-align: center;
+.contents {
+    text-align: center;
 }
 
-.container{
-  text-align: center;
-  
-}
+.container {
+    text-align: center;
 
+}
 
 /* show.htmlのtextとimage表示*/
 .text_box {
-  
-}
+    }
 
-.text_box_text{
-  width: 500px;
-  padding: 0.5em 1em;
-  margin: 2em 0;
-  color: #5d627b;
-  background: white;
-  border-top: solid 5px #5d627b;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
-  margin-left: auto; /*中央寄せの為*/
-  margin-right: auto;/*中央寄せの為*/
+.text_box_text {
+    width: 500px;
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #5d627b;
+    background: white;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+    margin-left: auto;
+    /*中央寄せの為*/
+    margin-right: auto;
+    /*中央寄せの為*/
 }
 
 .text_box_text p {
-  margin: 0; 
-  padding: 0;
-  text-align:center;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
 .text_box_name {
-  margin: 0; 
-  padding: 0;
-  text-align:center;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
-
-
 .text_box_image {
-  text-align:center;
+    text-align: center;
 }
 /* show.htmlのtextとimage表示*/
 
 /* index.htmlのinfo表示*/
 .info-title {
-  color: #364e96;/*文字色*/
-  padding: 0.5em 0;/*上下の余白*/
-  border-top: solid 3px #364e96;/*上線*/
-  border-bottom: solid 3px #364e96;/*下線*/
-  width: 500px;
-  margin-left: auto; /*中央寄せの為*/
-  margin-right: auto;/*中央寄せの為*/
+    color: #364e96;
+    /*文字色*/
+    padding: 0.5em 0;
+    /*上下の余白*/
+    border-top: solid 3px #364e96;
+    /*上線*/
+    border-bottom: solid 3px #364e96;
+    /*下線*/
+    width: 500px;
+    margin-left: auto;
+    /*中央寄せの為*/
+    margin-right: auto;
+    /*中央寄せの為*/
 
 }
 /* index.htmlのinfo表示*/
 
 /* credit_card_payments/index.htmlの表示*/
-.card-form{
-  width: 500px;
-  padding: 5.5em 0;/*上下の余白*/
-  margin: 0 auto;
+.card-form {
+    width: 500px;
+    padding: 5.5em 0;
+    /*上下の余白*/
+    margin: 0 auto;
 }
 
-.form-wrap{
-  display: flex;
-  flex-direction: column;
-  
+.form-wrap {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
 }
 
-.exp_month{
-  resize:none;
+.exp_month {
+    resize: none;
 }
 
-.exp_year{
-  resize:none;
+.exp_year {
+    resize: none;
 }
 
-.input-expiration-date-wrap{
-  display: flex;
+.input-expiration-date-wrap {
+    display: flex;
 }
 
+.button {
+    margin-top: 30px;
+    height: 30px;
+    width: 100px;
+}
 
-.button{
-  margin-top: 30px;
-  height: 30px;
-  width: 100px;
+.tyounaikai {
+    font-weight: bold;
 }
 /* credit_card_payments/index.htmlの表示*/
 
 /* jQueryにて大きさ調整*/
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 ul {
-  list-style: none;
-  display: flex;
-  justify-content: flex-end;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
 }
 
 html {
-  font-size: 62.5%;
-}
-
-body {
-  font-size: 1.6rem;
+    font-size: 62.5%;
 }
 
 button {
-  font-size: 15px;
-  padding: 3px 5px;
+    font-size: 15px;
+    padding: 3px 5px;
 }
-
-/*// jQueryにて大きさ調整*/
+/*/
+/ jQueryにて大きさ調整*/

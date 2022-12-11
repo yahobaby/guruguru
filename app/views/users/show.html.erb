@@ -1,10 +1,8 @@
 <%# usersコントローラーshowアクションに対応するビューファイル %>
     <div class="contents row">
-        <p><%= @nickname %>さんの投稿一覧</p>
+        <p><%= @nickname %>さんのお知らせ一覧</p>
         <% @infos.each do |info| %>
-
-        <%# マイページに部分テンプレートを適用 %>
-            <%= render partial: "infos/info", locals: { info: info } %>
-        <%#// マイページに部分テンプレートを適用 %>    
-        <% end %>
-    </div>
+            <%# マイページに部分テンプレートを適用 %>
+                <%= render partial: "infos/info", locals: { info: info } %>
+                <%#// マイページに部分テンプレートを適用 %><% end %>
+            </div>
