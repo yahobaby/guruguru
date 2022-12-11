@@ -5,37 +5,44 @@
         <%= csrf_meta_tags %>
         <%= csp_meta_tag %>
 
-        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track':
-        'reload' %>
-        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    </head>
+        <!-- javascript無効化の為 <%= stylesheet_link_tag 'application', media: 'all',
+        'data-turbolinks-track': 'reload' %> <%= javascript_pack_tag 'application',
+        'data-turbolinks-track': 'reload' %> !-->
+        <%# payjpを読み込む %>
+            <script type="text/javascript" src="https://js.pay.jp/v1/"></script>
+            <%= stylesheet_link_tag 'application', media: 'all' %>
+            <%= javascript_pack_tag 'application' %>
+        </head>
 
-    <body>
-        <header class="header">
-            <div class="header_logo">
-                <a href="/">回覧板</a>
-                <%# ログイン状態かどうかで表示を切り替る %>
-                    <% if user_signed_in? %>
-                        <span><%= current_user.nickname %>様こんにちは！</span>
-                    </div>
-                    <%# 現在ログインしているニックネームを表示 %>
-                        <%# //現在ログインしているニックネームを表示 %>
-                            <%= link_to "マイページ", "/users/#{current_user.id}" %>
-                            <%= link_to "投稿する", new_info_path, class: "post" %>
-                            <%= link_to "町内会費支払い", credit_card_payments_path, class: "get" %>
-                            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-
+        <body>
+            <header class="header">
+                <div class="header_logo">
+                    <a href="/">回覧板</a>
+                    <%# ログイン状態かどうかで表示を切り替る %>
+                        <% if user_signed_in? %>
+                            <span><%= current_user.nickname %>様こんにちは！</span>
+                            <%= link_to "文字大", root_path %>
+                            <%= link_to "文字小", root_path %>
                         </div>
-                    <% else %>
-                        <%= link_to "住民の方はこちら", new_user_session_path, class: "post" %>
-                        <%= link_to "新規登録", new_user_registration_path, class: "post" %>
-                    <% end %>
-                    <%#// ログイン状態かどうかで表示を切り替る %>
-                    </div>
-                </header>
-                <%= yield %>
-                <footer>
-                    <%= render partial: "infos/footer" %>
-                </footer>
-            </body>
-        </html>
+                        <%# 現在ログインしているニックネームを表示 %>
+                            <%# //現在ログインしているニックネームを表示 %>
+                                <%= link_to "マイページ", "/users/#{current_user.id}" %>
+                                <%= link_to "投稿する", new_info_path, class: "post" %>
+                                <%= link_to "町内会費支払い", credit_card_payments_path, class: "get" %>
+                                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                            </div>
+                        <% else %>
+                            <%= link_to "住民の方はこちら", new_user_session_path, class: "post" %>
+                            <%= link_to "新規登録", new_user_registration_path, class: "post" %>
+                            <%= link_to "文字大", root_path %>
+                            <%= link_to "文字小", root_path %>
+                        <% end %>
+                        <%#// ログイン状態かどうかで表示を切り替る %>
+                        </div>
+                    </header>
+                    <%= yield %>
+                    <footer>
+                        <%= render partial: "infos/footer" %>
+                    </footer>
+                </body>
+            </html>

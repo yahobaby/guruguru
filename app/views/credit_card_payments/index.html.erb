@@ -1,4 +1,9 @@
 <%= form_with  model: @credit_card_payment, id: 'charge-form', class: 'card-form',local: true do |f| %>
+
+<%# エラーメッセージを表示するための部分テンプレート %>
+  <%= render 'layouts/error_messages', model: @credit_card_payment %>
+
+
   <div class='form-wrap'>
     <%= f.label :price, "支払い" %>
     <%= f.text_field :price, class:"price", placeholder:"例)3000" %>
@@ -8,6 +13,30 @@
     <%= f.text_field :period, class:"price", placeholder:"例)2023" %>
     <%= f.label :note, "備考欄" %>
     <%= f.text_field :note, class:"price", placeholder:"例)領収書お願いします。等" %>
+    <%= image_tag 'fapiao.jpeg', size: "300x150"%>
   </div>
+
+<%# クレジットカード情報の入力欄 %>
+    <div class='form-wrap'>
+    <%= f.label :number,  "カード番号" %>
+    <%= f.text_field :number, class:"number", placeholder:"カード番号(半角英数字)", maxlength:"16" %>
+  </div>
+  <div class='form-wrap'>
+    <%= f.label :cvc ,"ＣＶＣ" %>
+    <%= f.text_field :cvc, class:"cvc", placeholder:"カード背面4桁もしくは3桁の番号", maxlength:"4" %>
+  </div>
+  <div class='form-wrap'>
+    <p>有効期限</p>
+    <div class='input-expiration-date-wrap'>
+      <%= f.text_field :exp_month, class:"exp_month", placeholder:"例)3" %>
+      <p>月</p>
+      <%= f.text_field :exp_year, class:"exp_year", placeholder:"例)24" %>
+      <p>年</p>
+    </div>
+  </div>
+<%# クレジットカード情報の入力欄 %>
+
+
   <%= f.submit "支払い", class:"button", id: "button" %>
+
 <% end %>

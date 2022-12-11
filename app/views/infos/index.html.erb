@@ -1,3 +1,12 @@
+<%# クレジットカード支払い後、支払い完了メッセージ %>
+<% if flash[:notice1] %>
+  <p><%= flash[:notice1] %></p>
+<% end %>
+<% if flash[:notice2] %>
+  <p><%= flash[:notice2] %></p>
+<% end %>
+
+
 <%# 検索の入力欄とボタン %>
     <%= form_with(url: search_infos_path, local: true, method: :get, class:
     "search-form") do |form| %>

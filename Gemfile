@@ -61,3 +61,11 @@ gem 'pry-rails'
 
 # ユーザー管理機能
 gem 'devise'
+
+# クレジット支払い
+gem 'payjp'
+
+# 画像加工のツール
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
+

@@ -55,7 +55,7 @@ class InfosController < ApplicationController
 
   private
   def info_params
-    params.require(:info).permit(:image, :text, :title).merge(user_id: current_user.id) # current_userで現在ログインしているユーザーの情報を取得
+    params.require(:info).permit(:text, :title, :local_image).merge(user_id: current_user.id) # current_userで現在ログインしているユーザーの情報を取得
     # info情報を持つハッシュと、user_idを持つハッシュを結合
   end
 

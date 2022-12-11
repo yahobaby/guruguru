@@ -1,23 +1,22 @@
 <div class="text_box">
     <div class="text_box_image">
-        <%= image_tag @info.image, size: '500x500' %>
+        <%= image_tag @info.local_image.variant(resize: '500x500'), class: 'message-image' if @info.local_image.attached? %>
     </div>
     <div class="text_box_text">
         <p><%= @info.text %></p>
     </div>
-    <span class="name">
+    <div class="name">
         <a href="/users/<%= @info.user.id %>">
             <span>投稿者</span><%= @info.user.nickname %>
         </a>
-    </span>
-</div>
 
 <%# ログイン中ユーザーが投稿したツイートには、詳細ボタンに加えて「編集・削除ボタン」が表示 %>
 <% if user_signed_in? && current_user.id == @info.user_id %>
     <%= link_to '編集', edit_info_path(@info.id) %>
     <%= link_to '削除', info_path(@info.id), method: :delete %>
 <% end %>
-
+    </div>
+</div>
 <%#// ログイン中ユーザーが投稿したツイートには、詳細ボタンに加えて「編集・削除ボタン」が表示 %>
 
     <%# コメント投稿用のフォーム %>

@@ -4,7 +4,8 @@ class Info < ApplicationRecord
 
   #  アソシエーション
   belongs_to :user
-  has_many :comments  
+  has_many :comments
+  has_one_attached :local_image #データベースへ保存するローカルイメージ
   # //アソシエーション
   
   # whereメソッドとLIKE句を使用して検索の処理
