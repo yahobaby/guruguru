@@ -6,8 +6,9 @@
 
 <%# ニックネームを入力するためのフォーム部品 %>
       <div class="field">
-        <%= f.label :お名前＆あだ名 %> <em>(最大6文字まで)</em><br />
-        <%= f.text_field :nickname, autofocus: true, maxlength: "6" %>
+        <%= f.label :お名前＆あだ名 %> <em><!--(最大6文字まで)!--></em><br />
+        <%#= f.text_field :nickname, autofocus: true, maxlength: "6" %>
+        <%= f.text_field :nickname, autofocus: true %>
       </div>
 <%#// ニックネームを入力するためのフォーム部品 %>      
 
