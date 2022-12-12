@@ -23,12 +23,20 @@ class InfosController < ApplicationController
   def destroy
     # destroyアクションは、ツイートを削除するだけで、ビューにツイート情報を受け渡す必要がなく、インスタンス変数ではなくただの変数として定義
     info = Info.find(params[:id])
+    if user_signed_in? && current_user.id == info.user_id
+      # ログインされてであり、且つログインしているユーザーと投稿者が同一ならば
     info.destroy
+    redirect_to root_path
+    end
   end
 
   def edit
     # 編集したいレコードを@infoに代入し、ビューに受け渡すことで編集画面で利用できるようにする。
     # form_withで使用する@infoの中身が入った状態にしておく。
+    if @info.user_id != current_user.id  # info制作したものと、ログインユーザーが違う場合、ルートページへ移動させる
+      # 学習メモ:unless 条件式 then を活用した表記も可能である。
+      redirect_to root_path
+    end
   end
 
   def update
