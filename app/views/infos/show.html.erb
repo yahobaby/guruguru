@@ -3,7 +3,9 @@
         <%= image_tag @info.local_image.variant(resize: '500x500'), class: 'message-image' if @info.local_image.attached? %>
     </div>
     <div class="text_box_text">
-        <p><%= @info.text %></p>
+        <!--<p><%= @info.text %></p>!-->
+        <%=safe_join(@info.text.split("\n"),tag(:br))%><!--こう記述することで、入力したまま表示する（改行、段落など）!-->
+
     </div>
     <div class="text_box_name">
         <a href="/users/<%= @info.user.id %>">

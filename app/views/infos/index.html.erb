@@ -14,7 +14,7 @@
     <%= form.submit "探す", class: "search-btn" %>
 <% end %>
 <%#// 検索の入力欄とボタン %>
-    <div class="contents row">
+    <div class="contents">
         <% @infos.each do |info| %>
             <%= render partial: "info", locals: { info: info } %>
             <%# 部分テンプレート内において,infoという文字列の代入されたinfo変数が使えるようにする。 %><% end %>
