@@ -46,7 +46,7 @@ https://docs.google.com/spreadsheets/d/1uOCUV71OYLoP2kpjxLG-kJDmYlKzfaz8QigCHIcI
 [![Image from Gyazo](https://i.gyazo.com/b482fff581f63615c29965255d104788.gif)](https://gyazo.com/b482fff581f63615c29965255d104788)
 
 
-# 実装予定の機能	洗い出した要件の中から、今後実装予定の機能がある場合は、その機能を記載。
+# 実装予定の機能
 * コメント削除機能<br><br>
 * 確認済み機能（いいね機能を応用）<br><br>
 * 背景色と文字色の反転色選択ボタン
