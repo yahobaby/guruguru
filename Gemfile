@@ -73,3 +73,14 @@ gem 'mini_magick'
 
 # faker導入
 gem 'faker'
+
+#aws-sdk-s3導入
+gem "aws-sdk-s3", require: false
+
+
+# Unicornの設定
+# 全世界に公開されるサーバ上で良く利用されるアプリケーションサーバー。rails sコマンドの代わりに「unicorn_railsコマンド」でも起動できる。
+group :production do
+  gem 'unicorn', '5.4.1'
+end
+#// Unicornの設定
