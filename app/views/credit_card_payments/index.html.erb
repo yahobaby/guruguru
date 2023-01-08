@@ -2,24 +2,41 @@
 'card-form',local: true do |f| %>
 
 <%# エラーメッセージを表示するための部分テンプレート %>
-    <%= render 'layouts/error_messages', model: @credit_card_payment %>
+<%= render 'layouts/error_messages', model: @credit_card_payment %>
 
-    <div class="tyounaikai">
-        町内会費用は「１世帯３０００円」です。
-    </div>
+<div class="tyounaikai">
+    町内会費用は「１世帯３０００円」です。
+</div>
 
-    <div class='form-wrap'>
-        <%= f.label :price, "支払い額" %>
-        <%= f.text_field :price, class:"price", placeholder:"例)3000" %>
-        <%= f.label :name, "世帯主名" %>
-        <%= f.text_field :name, class:"price", placeholder:"例)田中様" %>
-        <%= f.label :period, "期間" %>
-        <%= f.text_field :period, class:"price", placeholder:"例)2023" %>
-        <%= f.label :note, "備考欄" %>
-        <%= f.text_field :note, class:"price", placeholder:"例)領収書お願いします。等" %>
-        <%= image_tag 'fapiao.jpg', size: "300x150"%>
-    </div>
+<div class='form-wrap'>
+    <%= f.label :price, "支払い額" %>
+    <%= f.text_field :price, class:"price", placeholder:"例)3000" %>
+    <%= f.label :name, "世帯主名" %>
+    <%= f.text_field :name, class:"price", placeholder:"例)田中様" %>
+    <%= f.label :period, "期間" %>
+    <%= f.text_field :period, class:"price", placeholder:"例)2023" %>
+    <%= f.label :note, "備考欄" %>
+    <%= f.text_field :note, class:"price", placeholder:"例)領収書お願いします。等" %>
+    <%= image_tag 'fapiao.jpg', size: "300x150"%>
+</div>
 
+<%# クレジットカード情報の入力欄 %>
+<label for="number">カード番号</label>
+<div id='number' class="payjs-outer form-wrap">
+    <%# ここにフォームが生成される %>
+</div>
+<label for="cvc">CVC</label>
+<div id='cvc' class="payjs-outer form-wrap">
+    <%# ここにフォームが生成される %>
+</div>
+<label for="exp-date">有効期限</label>
+<div id='exp-date' class="payjs-outer form-wrap">
+    <%# ここにフォームが生成される %>
+</div>
+<%# クレジットカード情報の入力欄 %>
+
+
+<!-- payjp v1 API終了に伴い、v2へ切り替えの為
     <%# クレジットカード情報の入力欄 %>
         <div class='form-wrap'>
             <%= f.label :number, "カード番号" %>
@@ -41,7 +58,7 @@
             </div>
         </div>
         <%# クレジットカード情報の入力欄 %>
+!-->
+<%= f.submit "支払い", class:"button", id: "button" %>
 
-            <%= f.submit "支払い", class:"button", id: "button" %>
-
-        <% end %>
+<% end %>
